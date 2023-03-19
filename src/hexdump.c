@@ -56,6 +56,7 @@ void dump_bytes(FILE* file, int offset) {
 	}
 	
 	print_buffer(buffer, file_size);
+	free(buffer);
 }
 
 int main(int argc, char** argv) {
