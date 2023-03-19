@@ -16,6 +16,7 @@ void print_chars(uint8_t* buffer, size_t l) {
 }
 
 void print_buffer(uint8_t* buffer, int file_size) {
+	printf("%08x  ", 0);
 	for (size_t i = 0; i < file_size; i++) {
 		if (i > 0 && i % 8 == 0) {
 			printf("  ");
@@ -26,10 +27,11 @@ void print_buffer(uint8_t* buffer, int file_size) {
 			print_chars(buffer, i);
 			printf("|");
 			printf("\n");
+			printf("%08lx  ", i);
 		}
 		
 		if (i < file_size) {
-			printf(" %02x", buffer[i]);
+			printf("%02x ", buffer[i]);
 		}
 	}
 	
