@@ -45,13 +45,13 @@ void dump_bytes(FILE* file, int offset) {
 	
 	uint8_t* buffer = (uint8_t*)malloc(file_size * sizeof(uint8_t));
 	if (buffer == NULL) {
-		fprintf(stderr, "Unexpected error: insufficient memory.\n");
+		fprintf(stderr, "Error: insufficient memory.\n");
 		exit(1);
 	}
 	
 	size_t bytes_read  = fread(buffer, sizeof(uint8_t), file_size, file);
 	if (bytes_read < file_size) {
-		fprintf(stderr, "Unexpected error: could not read file\n");
+		fprintf(stderr, "Error: could not read file.\n");
 		exit(3);
 	}
 	
@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
 		file = fopen(dir, "rb");
 		
 		if (file == NULL) {
-			fprintf(stderr, "Error: cannot open the file '%s'.\n", dir);
+			fprintf(stderr, "Error: cannot open file '%s'.\n", dir);
 			exit(1);
 		}
 	} else {
